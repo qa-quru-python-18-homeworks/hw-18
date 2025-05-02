@@ -1,0 +1,47 @@
+# Python bytecode: *.pyc, *.pyo, and cache directories
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments (venv, pipenv, poetry) and environment files
+.env
+data/.env
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE settings (PyCharm, VS Code)
+.idea/
+.vscode/
+*.iml
+
+# Test frameworks cache (pytest, Hypothesis, etc.)
+.pytest_cache/
+.hypothesis/
+
+# Coverage and reports (coverage, Allure, etc.)
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+allure-results/
+allure-report/
+
+# Other test artifacts (logs, screenshots, tmp files, etc.)
+*.log
+*.tmp
+logs/
+screenshots/
+reports/
+tmp/
+temp/
+
+# Miscellaneous OS and editor-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
