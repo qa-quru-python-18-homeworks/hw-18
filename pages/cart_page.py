@@ -1,4 +1,5 @@
 import os
+import time
 
 from selene import browser, query
 
@@ -20,6 +21,7 @@ class CartPage:
         browser.driver.refresh()
 
     def get_cart_items(self):
+        time.sleep(0.3)
         return browser.all(self.cart_item)
 
     def get_cart_quantity(self):

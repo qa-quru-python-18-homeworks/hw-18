@@ -17,12 +17,11 @@ def get_auth_cookie():
         "RememberMe": True,
     }
 
-    with allure.step("Отправка POST-запроса для логина"):
-        response = requests.post(LOGIN_URL, data=payload, allow_redirects=False)
+    response = requests.post(LOGIN_URL, data=payload, allow_redirects=False)
 
-        attach_text("Request",
-                    f"URL: {LOGIN_URL}\nMethod: POST\nPayload: {payload}\nHeaders: {response.request.headers}")
-        attach_text("Response", response.text)
+    attach_text("Request",
+                f"URL: {LOGIN_URL}\nMethod: POST\nPayload: {payload}\nHeaders: {response.request.headers}")
+    attach_text("Response", response.text)
 
     if response.status_code != 302:
         raise Exception()

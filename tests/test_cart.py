@@ -23,18 +23,16 @@ def test_cart_contains_product(auth_token, product_in_cart):
 
 
 @pytest.mark.parametrize('product_in_cart', [
-    (45, 100),
+    (45, 100)
 ], indirect=True)
-def test_cart_quantity(auth_token, product_in_cart):
+def test_cart_clear(auth_token, product_in_cart):
     with allure.step("Открытие страницы корзины"):
         cart_page = CartPage(auth_token)
         cart_page.open()
 
-    with allure.step("Получение количества товара в корзине"):
-        cart_quantity = cart_page.get_cart_quantity()
-
-    with allure.step("Проверка количества товара в корзине"):
-        assert cart_quantity == 1
-
     with allure.step("Удаление товара из корзины"):
         cart_page.set_cart_quantity(0)
+
+    with allure.step("Проверка, что корзина пуста"):
+        cart_items = cart_page.get_cart_items()
+        assert len(cart_items) == 0
