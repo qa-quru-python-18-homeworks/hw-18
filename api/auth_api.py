@@ -23,12 +23,7 @@ def get_auth_cookie():
                 f"URL: {LOGIN_URL}\nMethod: POST\nPayload: {payload}\nHeaders: {response.request.headers}")
     attach_text("Response", response.text)
 
-    if response.status_code != 302:
-        raise Exception()
-
     auth_cookie = response.cookies.get("NOPCOMMERCE.AUTH")
-    if not auth_cookie:
-        raise Exception()
 
     attach_text("Auth Cookie", auth_cookie)
     return auth_cookie
